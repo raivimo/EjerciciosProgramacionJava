@@ -14,11 +14,9 @@ import java.util.Scanner;
  */
 public class Ej2 {
     
-    public static int mayorEdad(int a){
-        if(a>=18)
-            System.out.println("Eres mayor de Edad");
-        else
-            System.out.println("No eres mayor de Edad");
+    public static boolean mayorEdad(int a){
+        return a>=18;
+        
     }
     
     
