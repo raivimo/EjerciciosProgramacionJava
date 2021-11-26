@@ -16,12 +16,15 @@ import java.util.Scanner;
 public class Ej11 {
     
     public static void tablaMultiplicar(int a){
+        //CREAMOS LA MATRIZ
         int [] tabla = new int [10];
        
+        //RELLENAMOS LA MATRIZ
         for (int i = 0; i < tabla.length; i++) {
             tabla[i]=a*(i+1); 
             }
         System.out.println("TABLA DEL " + a + " :");
+        //MOSTRAMOS LA MATRIZ
         for (int i = 0; i < 10; i++) {
             System.out.println(a + " x " + (i+1) + " = " + tabla[i]);
         }
