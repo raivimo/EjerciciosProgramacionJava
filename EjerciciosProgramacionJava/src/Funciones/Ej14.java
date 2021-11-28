@@ -17,9 +17,18 @@ import java.util.Scanner;
 public class Ej14 {
     
     public static void triangulo(char a, int b){
-        for (int i = 0; i < b; i++) {
-            int contador=1;
-            System.out.println(a*(i+1));
+        int espacios = (b-1), asteriscos = 1;
+        for (int i = 1; i <= b; i++) {
+            for (int j = 1; j <= espacios; j++) {
+                System.out.print("");
+            }
+            for (int j = 1; j <=asteriscos; j++) {
+                System.out.print("*");
+            }
+            System.out.println("");
+            espacios--;
+            asteriscos =+2;
+            
         }
     }
     

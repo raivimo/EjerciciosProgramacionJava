@@ -14,13 +14,13 @@ import java.util.Scanner;
  */
 public class Ej4 {
     
-    public static int dimeSigno(int a){
+    public static void dimeSigno(int a){
         if (a>0)
-            return 1;
+            System.out.println("1");
         else if (a<0)
-            return -1;
+            System.out.println("-1");
         else if (a == 0)
-            return 0;
+            System.out.println("0");
     }
     
     
@@ -28,6 +28,6 @@ public class Ej4 {
         Scanner in = new Scanner(System.in);
         System.out.println("DIME UN NUMERO");
         int a = in.nextInt();
-        System.out.println(dimeSigno(a));
+        dimeSigno(a);
     }
 }
