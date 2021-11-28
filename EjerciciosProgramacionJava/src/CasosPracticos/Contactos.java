@@ -45,7 +45,12 @@ public class Contactos {
             case 4:
                 buscarNombre();
                 break;
-                
+            case 5:
+                buscarTelefono();
+                break;
+            case 6:
+                buscarCorreo();
+                break;
             case 8:
                 salir = true;
                 break;
@@ -102,12 +107,11 @@ public class Contactos {
     }
     public static void buscarNombre(){
         Scanner in = new Scanner(System.in);
-        in.nextLine();
         System.out.println("INTRODUCA EL NOMBRE A BUSCAR");
         String buscar = in.nextLine();
         boolean encontrado = false;
         for (int i = 0; i < cuantos ; i++) {
-            if (nombre[i].toUpperCase().indexOf(buscar.toUpperCase()) != -1 ) {
+            if (nombre[i].indexOf(buscar) != -1 ) {
                 System.out.println(i + ". Nombre: " + nombre[i] + "    Telf: " + telefono[i] + "   Correo: " + correo[i]);
                 encontrado = true;
                 }
@@ -115,12 +119,35 @@ public class Contactos {
         if (!encontrado)
             System.out.println("LO SIENTO. EL CONTACTO NO EXISTE.");
         }
+    public static void buscarTelefono(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("INTRODUCA EL TELEFONO A BUSCAR");
+        int buscar = in.nextInt();
+        boolean encontrado = false;
+        for (int i = 0; i < cuantos; i++) {
+            if (telefono[i]==buscar) {
+                System.out.println(i + ". Nombre: " + nombre[i] + "    Telf: " + telefono[i] + "   Correo: " + correo[i]);
+                encontrado = true;
+                }
+            }
+        if(!encontrado)
+            System.out.println("LO SIENTO. EL TELEFONO NO EXISTE.");
+    }
+    public static void buscarCorreo(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("INTRODUCE EL CORREO QUE QUIERES BUSCAR");
+        String buscar = in.nextLine();
+        boolean encontrado = false;
+        for (int i = 0; i < cuantos; i++) {
+            if ((correo[i].indexOf(buscar)) != -1) {
+                System.out.println(i + ". Nombre: " + nombre[i] + "    Telf: " + telefono[i] + "   Correo: " + correo[i]);
+                encontrado = true;
+                }
+            }
+        if(!encontrado)
+            System.out.println("LO SIENTO. EL CORREO NO EXISTE.");
+    }
 
-    
-    
-    
-    
-    
     public static void main(String[] args) {
         int opcion = 0;
         do {
