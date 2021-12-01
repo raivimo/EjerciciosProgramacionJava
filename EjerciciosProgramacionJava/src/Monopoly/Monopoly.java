@@ -87,7 +87,7 @@ public class Monopoly {
     }
     
     //ESTA FUNCIÓN LA USO PARA CALCULAR EL PRECIO DEL ALQUILER
-    public static void precioAlquiler(int[] precioCalles){
+    public static void generarAlquiler(int[] precioCalles){
         for (int i = 0; i <= calles.length ; i++) {
             precioAlquiler[i]=(precioCalles[i]*0.22);
         }
@@ -110,9 +110,15 @@ public class Monopoly {
             }
         }
     
-    public static void comprarCalle(){
-        Scanner in = new Scanner(System.in);
+    public static boolean libreOcomprada(i){
         
+    }
+    
+    public static void comprarCalle(int[]libreOcomprada){
+        Scanner in = new Scanner(System.in);
+        if (libreOcomprada==1) {
+            
+        }
     }
     
     
