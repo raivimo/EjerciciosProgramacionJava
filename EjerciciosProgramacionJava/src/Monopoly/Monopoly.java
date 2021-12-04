@@ -27,37 +27,68 @@ public class Monopoly {
     
     public static double[] precioAlquiler= new double[40];
     public static int[] precioCasas= new int[40];
+    public static int[] libreOcomprada = new int[40];
+    
+    
+    public static double dineroJugador;
+    public static int posicionJugador;
+    public static int turnoJugador;
+    public static int numJugadores;
+    public static int[] propiedadesDelJugador = new int [40];
+    
+    public static String [] nombreJugadores = new String[numJugadores];
+    
+    
+   
+    
     
     
     //*ESTA FUNCIÓN SE ENCARGARÁ DE MOSTAR EL MENÚ PRINCIPAL DEL JUEGO
     public static void menu(){
         System.out.println("---BIENVENIDO AL JUEGO DEL MONOPOLY----");
         System.out.println("-------POR RAIMON VILAR MORERA---------");
-        System.out.println("LAS INSTRUCCIONES DE JUEGO SON LAS SIGUIENTES:");
+        System.out.println("LAS INSTRUCCIONES DEL JUEGO SON LAS SIGUIENTES:");
         System.out.println("SE TE ASIGNARÁ UNA CANTIDAD DE DINERO INICIAL (200€)");
-        System.out.println("Y OBLIGATORIAMENTE HAS DE TIRAR LOS DADOS EN CADA TURNO");
+        System.out.println("Y OBLIGATORIAMENTE HAS DE TIRAR LOS DADOS EN CADA TURNO.");
         System.out.println("SEGUN LA CASILLA QUE CAIGAS: SUERTE, CAJA DE AHORROS, CÁRCEL O CALLE");
         System.out.println("TENDRÁS OPCION DE COMPRAR O PASAR SIN COMPRAR. EN EL CASO DE QUE CAIGAS");
         System.out.println("EN UN CALLE COMPRADA POR OTRO JUGADOR, SE TE EXIGIRÁ EL ALQUILER.");
         System.out.println("UNA VEZ TENGAS UNA PROPIEDAD, PODRÁS EDIFICAR EN ELLA, HACIENDO QUE EL VALOR");
-        System.out.println("DE ALQUILER SEA MAS CARO.");    
+        System.out.println("DEL ALQUILER SEA MÁS CARO.");    
         System.out.println("GANARÁ EL ÚLTIMO JUGADOR QUE NO HAYA QUEDADO EN BANCARROTA.");
+        numJugadores();
     }
     
     //MENU DEL JUEGADOR DONDE LE DÁ A ALEGIR DIFERENTES OPCIONES DE JUEGO.    
     public static void menuJugador(){
-        System.out.println("1. VER CANTIDAD DE DINERO DISPONIBLE");
-        System.out.println("2. COMPRAR CALLE");
-        System.out.println("3. COMPRAR CASAS");
-        System.out.println("4. PASAR SIN COMPRAR");
-        System.out.println("5. TIRAR DADOS");
+        System.out.println("DINERO DISPONIBLE: " + dineroJugador + " €.");
+        System.out.println("1. COMPRAR CALLE");
+        System.out.println("2. COMPRAR CASAS");
+        System.out.println("3. PASAR SIN COMPRAR");
+        System.out.println("4. TIRAR DADOS");
+        
+    }
+    
+    public static void realizarOperacion(int opcion){
+        Scanner in = new Scanner(System.in);
+        opcion = in.nextInt();
+        switch(opcion){
+            case 1:
+                comprarCalle(libreOcomprada);
+                break;
+            case 4:
+                tirarDados();
+                break;
+                
+                
+        }
     }
         
     /*ESTA FUNCION SÉ ENCARGARÁ DE LANZAR LOS DADOS ALEATORIAMENTE
     COMPROBAR SI HAN SALIDO "DOBLES", Y EN EL CASO DE QUE HAYAN SALIDO DOBLES REPETIR.
     HASTA UN MÁXIMO DE 3 VECES.
     */
-    public static void tirardados(){
+    public static void tirarDados(){
       int dado1, dado2, res;
         int cont = 0;
         do {
@@ -74,16 +105,23 @@ public class Monopoly {
             System.out.println("LO SIENTO. HAS SACADO TRES DOBLES SEGUIDOS. VAS A LA CARCEL.");
     }   
     
+    //public static void posicionJugador(int tirarDados)
+    
     //ESTA FUNCIÓN SE ENCARGARA DE INICAR EL JUEGO PREGUNTANDO CUANTOS JUGADORES DESSEAN JUGAR.
     public static void numJugadores(){
         Scanner in = new Scanner(System.in);
-        int jugadores;
         do{
         System.out.println("¿CUANTOS JUGADORES SON?");
-        jugadores = in.nextInt();
-        if (jugadores>4)
+        numJugadores = in.nextInt();
+            for (int i = 0; i <= numJugadores; i++) {
+                System.out.println("NOMBRE DEL JUGADOR " + (i+1) + ":");
+                   nombreJugadores[i]=in.nextLine();
+            }
+        
+        if (numJugadores>4)
             System.out.println("LO SIENTO. EL NUMERO MÁXIMO DE JUGADORES POSIBLES ES 4.");
-        } while(jugadores>4);
+        } while(numJugadores>4);
+
     }
     
     //ESTA FUNCIÓN LA USO PARA CALCULAR EL PRECIO DEL ALQUILER
@@ -101,7 +139,6 @@ public class Monopoly {
     }
     
     public static void libreOcomprada(){
-        int[]libreOcomprada = new int[40];
         for (int i = 0; i < libreOcomprada.length; i++) {
             if (libreOcomprada[i] == 0)
                 System.out.println("ESTA CALLE ESTÁ LIBRE. PUEDES COMPRARLA.");
@@ -109,25 +146,31 @@ public class Monopoly {
                 System.out.println("LO SIENTO, ESTA CALLE PERTENECE A OTRO JUGADOR.");
             }
         }
-    
-    public static boolean libreOcomprada(i){
-        
-    }
-    
+
     public static void comprarCalle(int[]libreOcomprada){
         Scanner in = new Scanner(System.in);
-        if (libreOcomprada==1) {
-            
+        for (int i = 0; i < calles.length; i++) {
+            if(libreOcomprada[i] == 0){
+                System.out.println("EL PRECIO DE ESTA CALLE ES DE: " + precioCalles[i] + " €. PULSA 1 PARA COMPRAR.");
+                if (dineroJugador>=precioCalles[i]){
+                    libreOcomprada[i]=in.nextInt();
+                    dineroJugador -= precioCalles[i];
+                }
+                else
+                     System.out.println("LO SIENTO. NO TIENES SUFICIENTE DINERO PARA AFRONTAR EL PAGO DE ESTA PROPIEDAD");
+            }
         }
     }
-    
+                    
     
     public static void main(String[] args) {
-        for (int i = 0; i < calles.length; i++) {
-            System.out.println(calles[i] + "     " + precioCalles[i] + " €");      
-            }
-        precioAlquiler(precioCalles);
-    
+        generarAlquiler(precioCalles);
+        precioCasas(precioCalles);
+        menu();
+        menuJugador();
+        int opcion = 0;
+        realizarOperacion(opcion);
+        
             
         }
     }   
