@@ -39,7 +39,8 @@ public class Monopoly {
 
     public static int[] callesDelJugador = new int[40];
 
-    public static int contador = 0;
+    public static int contador = 0, opcion = 0;
+    public static boolean salir = false;
 
     //*ESTA FUNCIÓN SE ENCARGARÁ DE MOSTAR EL MENÚ PRINCIPAL DEL JUEGO
     public static void menu() {
@@ -59,19 +60,11 @@ public class Monopoly {
 
     //MENU DEL JUEGADOR DONDE LE DÁ A ALEGIR DIFERENTES OPCIONES DE JUEGO.    
     public static void menuJugador() {
-        for (int i = contador; i < (contador + 1); i++) {
-            System.out.println("ES EL TURNO DE: " + nombreJugador[i]);
-            System.out.println("DINERO DISPONIBLE: " + dineroJugador[i] + " €");
-            System.out.println("ESTAS EN LA CALLE: " + calles[posicionJugador[i]]);
-            //System.out.println("TIENES EN PROPIEDAD LAS SIGUIENTES CALLES:");
-            
-        }
-        
+        System.out.println("");
         System.out.println("1. TIRAR DADO");
         System.out.println("2. COMPRAR CALLE");
         System.out.println("3. COMPRAR CASA");
         System.out.println("4. FINALIZAR TURNO");
-
     }
 
     //ESTA FUNCIÓN SE ENCARGARA DE INICAR EL JUEGO PREGUNTANDO CUANTOS JUGADORES DESSEAN JUGAR Y SU NOMBRE
@@ -96,36 +89,39 @@ public class Monopoly {
         return numJugadores;
     }
 
-    public static int turnoJugador(int contador) {
-        if (contador <= numJugadores) {
-            switch (numJugadores) {
-                case 1:
-                    contador++;
-                    break;
-                case 2:
-                    contador++;
-                    break;
-                case 3:
-                    contador++;
-                    break;
-                case 4:
-                    contador++;
-                    break;
+    public static void turnoJugador() {
+        if (contador < numJugadores) {
+            for (int i = contador; i < (contador + 1); i++) {
+                System.out.println("ES EL TURNO DE: " + nombreJugador[i]);
+                System.out.println("DINERO DISPONIBLE: " + dineroJugador[i] + " €");
+                System.out.println("ESTAS EN LA CALLE: " + calles[posicionJugador[i]]);
             }
+            System.out.println("TIENES EN PROPIEDAD LAS SIGUIENTES CALLES:");
+            for (int j = 0; j <= libreOcomprada.length ; j++) {
+                if(libreOcomprada[j] == contador)
+                    System.out.println(calles[j]);
+                }
+            
+            
+            do {
+                menuJugador();
+                realizarOperacion(opcion);
+            } while (salir == false);
+            contador++;
         }
         else
             contador=0;
-        return contador;
-        }
+
+}
 
     //ESTA FUNCIÓN ASIGNA EL DINERO INICIAL DE LOS JUGADORES EN FUNCIÓN DE SU NUMERO.
     public static void dineroInicial() {
         for (int i = 0; i < numJugadores; i++) {
-            dineroJugador[i] += 200;
+            dineroJugador[i] += 2000;
         }
     }
 
-    public static void realizarOperacion(int opcion) {
+    public static int realizarOperacion(int opcion) {
         Scanner in = new Scanner(System.in);
         opcion = in.nextInt();
         switch (opcion) {
@@ -136,10 +132,10 @@ public class Monopoly {
                 comprarCalle(libreOcomprada);
                 break;
             case 4:
-                opcion = 4;
+                salir = true;
                 break;
-
         }
+        return opcion;
     }
 
     /*ESTA FUNCION SÉ ENCARGARÁ DE LANZAR LOS DADOS ALEATORIAMENTE
@@ -148,13 +144,16 @@ public class Monopoly {
      */
     public static void tirarDados() {
         int dado1, dado2, res;
-        int cont = 0;
-        do {
+        //int cont = 0;
+        //do {
             dado1 = (int) (1 + Math.random() * 6);
             dado2 = (int) (1 + Math.random() * 6);
             res = dado1 + dado2;
-            System.out.println("DADO 1: " + dado1 + " DADO 2: " + dado2 + " HAS SACADO UN: " + res);
-            if (dado1 == dado2 && cont < 3) {
+            System.out.println("DADO 1: " + dado1);
+            System.out.println("DADO 2: " + dado2);
+            System.out.println("HAS SACADO UN: " + res);
+            System.out.println("");
+            /*if (dado1 == dado2 && cont < 3) {
                 System.out.println("HAS SACADO DOBLE. DEBES VOLVER A TIRAR.");
                 cont++;
             }
@@ -162,26 +161,36 @@ public class Monopoly {
         if (cont == 3) {
             System.out.println("LO SIENTO. HAS SACADO TRES DOBLES SEGUIDOS. VAS A LA CARCEL.");
         }
-        for (int i = turnoJugador; i < turnoJugador + 1; i++) {
-            posicionJugador[turnoJugador] = res; 
+        */   
+        for (int i = contador; i < (contador + 1) ; i++) {
+            if(posicionJugador[contador] + res >= 39 ){
+                posicionJugador[contador] = 40 - res;
+                System.out.println("HAS CAIDO EN CALLE: " + calles[posicionJugador[i]]);
+                System.out.println("");
+            }
+            else{
+                posicionJugador[contador] += res;
+                System.out.println("HAS CAIDO EN CALLE: " + calles[posicionJugador[i]]);
+                System.out.println("");
+            }
         }
-        
     }
-
+    
+    
     //ESTA FUNCIÓN LA USO PARA CALCULAR EL PRECIO DEL ALQUILER
     public static void generarAlquiler(double[] precioCalles) {
         for (int i = 0; i <= calles.length; i++) {
             precioAlquiler[i] = (precioCalles[i] * 0.22);
         }
     }
-
+    
     //USO ESTA FUNCION PARA AVERIGUAR EL PRECIO DE LAS CASAS
     public static void precioCasas(double[] precioCalles) {
         for (int i = 0; i < calles.length; i++) {
-            precioCasas[i] = ((int) (precioCalles[i] * 0.5));
+            precioCasas[i] = ((precioCalles[i] * 0.5));
         }
     }
-
+    
     public static void libreOcomprada() {
         for (int i = 0; i < libreOcomprada.length; i++) {
             if (libreOcomprada[i] == 0) {
@@ -191,16 +200,17 @@ public class Monopoly {
             }
         }
     }
-
     public static void comprarCalle(int[] libreOcomprada) {
         Scanner in = new Scanner(System.in);
-        for (int i = posicionJugador[turnoJugador]; i < (posicionJugador[turnoJugador]) + 1 ; i++) {
+        for (int i = posicionJugador[contador]; i < (posicionJugador[contador]) + 1 ; i++) {
             if (libreOcomprada[i] == 0) {
                 System.out.println("EL PRECIO DE ESTA CALLE ES DE: " + precioCalles[i] + " €. PULSA 1 PARA COMPRAR.");
-                if (dineroJugador[turnoJugador] >= precioCalles[i]) {
+                if (dineroJugador[contador] >= precioCalles[i]) {
                     libreOcomprada[i] = in.nextInt();
-                    dineroJugador[turnoJugador] -= precioCalles[i];
-                    System.out.println("TE QUEDAN : " + dineroJugador[turnoJugador] + "€");
+                    libreOcomprada[i] = contador;
+                    dineroJugador[contador] -= precioCalles[i];
+                    System.out.println("TE QUEDAN : " + dineroJugador[contador] + "€");
+                    System.out.println("");
                 }
                 else 
                     System.out.println("LO SIENTO. NO TIENES SUFICIENTE DINERO PARA AFRONTAR EL PAGO DE ESTA PROPIEDAD");
@@ -212,7 +222,7 @@ public class Monopoly {
    
 
     public static void main(String[] args) {
-        int opcion = 0;
+        
         menu();
         dineroInicial();
         generarAlquiler(precioCalles);
@@ -222,12 +232,10 @@ public class Monopoly {
             libreOcomprada[i] = 0;
         }
         
-        
         do {
-            turnoJugador(contador);
-            menuJugador();
-            realizarOperacion(opcion);
-           } while (opcion < 4);
+            turnoJugador();
+        } while (contador<5);
+        
         
         
         

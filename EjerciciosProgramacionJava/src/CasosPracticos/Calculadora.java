@@ -39,6 +39,7 @@ public class Calculadora {
         }
         return a;
     }
+    
     public static void realizaOperacion(int opcion){
         Scanner in = new Scanner(System.in);
         opcion = in.nextInt();
