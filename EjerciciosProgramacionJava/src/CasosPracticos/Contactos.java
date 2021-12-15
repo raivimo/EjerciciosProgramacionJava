@@ -139,7 +139,7 @@ public class Contactos {
         String buscar = in.nextLine();
         boolean encontrado = false;
         for (int i = 0; i < cuantos; i++) {
-            if ((correo[i].indexOf(buscar)) != -1) {
+            if (correo[i].indexOf(buscar) != -1) {
                 System.out.println(i + ". Nombre: " + nombre[i] + "    Telf: " + telefono[i] + "   Correo: " + correo[i]);
                 encontrado = true;
                 }
