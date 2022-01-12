@@ -18,6 +18,13 @@ public class Persona {
     public String apellido;
     public int edad;
     
+    public Persona(String dni, String nombre, String apellido, int edad){
+        this.dni=dni;
+        this.nombre=nombre;
+        this.apellido=apellido;
+        this.edad=edad;
+    }
+    
     public void imprimir(){
         System.out.print(nombre + " " + apellido + " con DNI " + dni);
     }

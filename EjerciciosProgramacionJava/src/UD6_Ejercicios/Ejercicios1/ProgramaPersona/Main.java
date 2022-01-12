@@ -18,7 +18,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         
-        Persona raimon = new Persona();
+        /*Persona raimon = new Persona();
         System.out.println("DIME NOMBRE DE LA PERSONA");
         raimon.nombre= in.nextLine();
         System.out.println("DIME DNI");
@@ -38,11 +38,14 @@ public class Main {
         amparo.apellido = in.nextLine();
         System.out.println("DIME EDAD");
         amparo.edad = in.nextInt();
+*/
+        Persona raimon = new Persona("33565458v", "Raimon", "Vilar Morera", 38);
+        Persona amparo = new Persona("564654564v", "Amparo", "Vilar Morera", 22);
         
         raimon.imprimir();
-        raimon.mayorEdad();
         amparo.imprimir();
-        amparo.mayorEdad();
+        
+        
         
         
     }

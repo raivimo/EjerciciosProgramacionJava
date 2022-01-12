@@ -18,6 +18,14 @@ public class Articulo {
     public int precioSinIva;
     public int iva = 21;
     public int cuantosQuedan;
+    public double precioConIva;
+    
+    public Articulo (String nombre, int precioSinIva, int iva, int cuantosQuedan){
+        this.nombre= nombre;
+        this.precioSinIva= precioSinIva;
+        this.iva= iva;
+        this.cuantosQuedan= cuantosQuedan;
+    }
     
     public double precioConIva(){
         return ((int) (1.21 * precioSinIva));

@@ -14,19 +14,14 @@ package UD6_Ejercicios.Ejercicios1.ProgramaPunto;
  */
 public class Main {
     public static void main(String[] args) {
-        Punto uno = new Punto();
-        uno.x=5;
-        uno.y=0;
-        uno.imprimir();
+ 
+     
+        Punto cuatro = new Punto(4,85);
         
-        Punto dos = new Punto();
-        dos.x=10;
-        dos.y=10;
-        dos.imprimir();
+        cuatro.getX();
         
-        Punto tres = new Punto();
-        tres.x=-3;
-        tres.y=7;
-        tres.imprimir();
+        
+        
+
     }
 }

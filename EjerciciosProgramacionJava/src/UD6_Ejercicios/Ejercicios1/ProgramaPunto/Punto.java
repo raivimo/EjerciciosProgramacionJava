@@ -13,8 +13,33 @@ package UD6_Ejercicios.Ejercicios1.ProgramaPunto;
  * @date 10 ene. 2022 20:00:59
  */
 public class Punto {
-    public int x;
-    public int y;
+    private int x = 0;
+    private int y = 0;
+    
+    public Punto(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+    
+    //GETTERS
+    public int getX(){
+        return x;
+    }
+    
+    public int getY(){
+        return y;
+    }
+    
+    //SETTERS
+    
+    public void setX(int x){
+        this.x=x;
+    }
+    
+    public void setY(int y){
+        this.y=y;
+    }
+    
     
     public void imprimir(){
         System.out.println("COORDENADAS PUNTO " + "("+x +", " + y +")");

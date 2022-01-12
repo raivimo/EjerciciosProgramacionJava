@@ -14,13 +14,9 @@ package UD6_Ejercicios.Ejercicios1.ProgramaArticulo;
  */
 public class Main {
     public static void main(String[] args) {
-        Articulo uno = new Articulo();
+        Articulo uno = new Articulo("teclado", 50, 21, 5);
         
-        uno.nombre = "Teclado";
-        uno.precioSinIva= 50;
-        uno.iva = 21;
-        uno.cuantosQuedan = 5;
-        uno.precioConIva = (int) uno.precioConIva(uno.precioSinIva);
+      
         
         System.out.println(uno.nombre + " - Precio:"+uno.precioSinIva+"€ - IVA:"+uno.iva+"% - PVP:"+uno.precioConIva+"€");
         
