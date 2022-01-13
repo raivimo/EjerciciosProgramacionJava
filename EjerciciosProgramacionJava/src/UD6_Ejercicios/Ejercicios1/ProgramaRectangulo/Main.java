@@ -14,46 +14,18 @@ package UD6_Ejercicios.Ejercicios1.ProgramaRectangulo;
  */
 public class Main {
 
-    
-    
     public static void main(String[] args) {
         
-        /*Rectangulo uno = new Rectangulo();
-        uno.x1=0;
-        uno.y1=0;
-        uno.x2=5;
-        uno.y2=5;
-        
-       
-        
-        Rectangulo dos = new Rectangulo();
-        dos.x1=7;
-        dos.y1=9;
-        dos.x2=2;
-        dos.y2=3;
-        
-        System.out.println("COORDENADAS RECTANGULO 1: ("+ uno.x1 + ", " +uno.y1+")");
-        System.out.println("COORDENADAS RECTANGULO 2: ("+ dos.x1 + ", " +dos.y1+")");
-        
-        
-        System.out.println("Perimetro de rectangulo 1: " + uno.perimetro() );
-        System.out.println("Perimetro de rectangulo 2: " + dos.perimetro() );
-        
-        System.out.println("Área rectangulo 1: " + uno.area());
-        System.out.println("Área rectangulo 2: " + dos.area());
-    */
-        Rectangulo uno = new Rectangulo(4,5,8,9);
+        Rectangulo uno = new Rectangulo(5,8,10,16);
         Rectangulo dos = new Rectangulo (2,1,12,50);
-        
-        // int temp = dos.getx1();
-        // dos.setx1( temp + 25 );
-        
-        
-        dos.setx1( dos.getx1() + 25 );
-        
-        uno.perimetro();
-        dos.perimetro();
-        
+
+        uno.imprimir();
+        uno.setX1Y1(8, 8);
+        uno.imprimir();
+        uno.setAll(2, 3, 4, 6);
+        uno.imprimir();
+        System.out.println(uno.perimetro());
+        System.out.println(uno.area());
         
     }
 

@@ -16,9 +16,10 @@ public class Main {
     public static void main(String[] args) {
  
      
-        Punto cuatro = new Punto(4,85);
+        Punto p1 = new Punto(0,0);
+        Punto p2 = new Punto (5,5);
         
-        cuatro.getX();
+        System.out.println(p1.distancia(p2));
         
         
         

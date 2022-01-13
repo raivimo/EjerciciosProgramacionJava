@@ -13,10 +13,10 @@ package UD6_Ejercicios.Ejercicios1.ProgramaPersona;
  * @date 10 ene. 2022 20:09:45
  */
 public class Persona {
-    public String dni;
-    public String nombre;
-    public String apellido;
-    public int edad;
+    private String dni;
+    private String nombre;
+    private String apellido;
+    private int edad;
     
     public Persona(String dni, String nombre, String apellido, int edad){
         this.dni=dni;
@@ -24,17 +24,58 @@ public class Persona {
         this.apellido=apellido;
         this.edad=edad;
     }
+    //GETTERS
+    
+    public String getDni(){
+        return dni;
+    }
+    
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public String getApellido(){
+        return apellido;
+    }
+    public int getEdad(){
+        return edad;
+    }
+    
+    //SETTERS
+    
+    public void setDni(String dni){
+        this.dni=dni;
+    }
+    
+    public void setNombre(String nombre){
+        this.nombre= nombre;
+    }
+    
+    public void setApellido(String apellido){
+        this.apellido=apellido;
+    }
+    
+    public void setEdad(int edad){
+        this.edad=edad;
+    }
+    
+    
+    //METODOS UTILES
     
     public void imprimir(){
-        System.out.print(nombre + " " + apellido + " con DNI " + dni);
+        System.out.println(nombre + " " + apellido + " con DNI " + dni);
     }
     
-    public void mayorEdad(){
-        if(edad < 18)
-            System.out.println("ES MAYOR DE EDAD");
-        else
-            System.out.println("NO ES MAYOR DE EDAD");
-        
-        
+    public boolean esMayorEdad(){
+        return edad>=18;
+    }
+    
+    public boolean esJubilado(){
+        return edad>=65;
+    }
+    
+    public int diferenciaEdad(Persona p){
+        return Math.abs(p.getEdad()-edad);
     }
 }
+

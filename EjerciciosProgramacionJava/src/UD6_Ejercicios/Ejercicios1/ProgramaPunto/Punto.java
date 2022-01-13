@@ -45,4 +45,18 @@ public class Punto {
         System.out.println("COORDENADAS PUNTO " + "("+x +", " + y +")");
     }
     
+    public void setXY(int x, int y){
+        setX(x);
+        setY(y);
+    }
+    
+    public void desplaza(int dx, int dy){
+        setX(x + dx);
+        setY(y + dy);
+    }
+    
+    public int distancia(Punto p){
+        return (int) Math.sqrt((p.getX()-x)*(p.getX()-x) + ((p.getY()-y)*(p.getY()-y)));
+    }
+    
 }

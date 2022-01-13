@@ -16,10 +16,10 @@ public class Main {
     public static void main(String[] args) {
         Articulo uno = new Articulo("teclado", 50, 21, 5);
         
-      
-        
-        System.out.println(uno.nombre + " - Precio:"+uno.precioSinIva+"€ - IVA:"+uno.iva+"% - PVP:"+uno.precioConIva+"€");
-        
+        System.out.println(uno.getNombre() + " - Precio:"+uno.getPrecioSinIva()+"€ - IVA:"+uno.getIva()+"% - PVP:"+uno.precioConIva()+"€");
+        uno.imprimir();
+        System.out.println(uno.getPVPDescuento(10));
+             
         
     }
 
