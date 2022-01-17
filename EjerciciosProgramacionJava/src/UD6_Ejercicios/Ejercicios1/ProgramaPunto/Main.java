@@ -18,8 +18,14 @@ public class Main {
      
         Punto p1 = new Punto(0,0);
         Punto p2 = new Punto (5,5);
+        Punto p3 = Punto.creaPuntoAleatorio();
+        Punto p4 = Punto.creaPuntoAleatorio();
+        Punto p5 = Punto.creaPuntoAleatorio();
         
-        System.out.println(p1.distancia(p2));
+        p3.imprimir();
+        p4.imprimir();
+        p5.imprimir();
+        
         
         
         

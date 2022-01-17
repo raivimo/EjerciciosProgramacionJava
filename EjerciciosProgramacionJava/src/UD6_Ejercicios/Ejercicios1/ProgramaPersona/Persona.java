@@ -13,10 +13,11 @@ package UD6_Ejercicios.Ejercicios1.ProgramaPersona;
  * @date 10 ene. 2022 20:09:45
  */
 public class Persona {
-    private String dni;
+    private final String dni;
     private String nombre;
     private String apellido;
     private int edad;
+    public final int mayorEdad=18;
     
     public Persona(String dni, String nombre, String apellido, int edad){
         this.dni=dni;
@@ -43,10 +44,7 @@ public class Persona {
     
     //SETTERS
     
-    public void setDni(String dni){
-        this.dni=dni;
-    }
-    
+        
     public void setNombre(String nombre){
         this.nombre= nombre;
     }
@@ -66,8 +64,8 @@ public class Persona {
         System.out.println(nombre + " " + apellido + " con DNI " + dni);
     }
     
-    public boolean esMayorEdad(){
-        return edad>=18;
+    public boolean esMayorEdad(int mayorEdad){
+        return mayorEdad>18;
     }
     
     public boolean esJubilado(){

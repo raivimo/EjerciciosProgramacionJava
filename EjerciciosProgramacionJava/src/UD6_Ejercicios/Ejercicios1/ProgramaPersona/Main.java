@@ -28,8 +28,13 @@ public class Main {
         
         System.out.println(raimon.getApellido());
         
-        System.out.println(raimon.esMayorEdad());
+        raimon.esMayorEdad(mayorEdad);
+        
         System.out.println(raimon.diferenciaEdad(amparo));
+        
+        
+        
+        
         
     }
 }

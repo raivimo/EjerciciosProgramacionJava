@@ -59,4 +59,11 @@ public class Punto {
         return (int) Math.sqrt((p.getX()-x)*(p.getX()-x) + ((p.getY()-y)*(p.getY()-y)));
     }
     
+    public static Punto creaPuntoAleatorio(){
+        int x = (int) (-100 + Math.random()*(100-(-100)+1));
+        int y = (int) (-100 + Math.random()*(100-(-100)+1));
+        Punto p = new Punto(x,y);
+        return p;
+    }
+    
 }
