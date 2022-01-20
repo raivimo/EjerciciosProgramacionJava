@@ -65,7 +65,7 @@ public class Persona {
     }
     
     public boolean esMayorEdad(int mayorEdad){
-        return mayorEdad>18;
+        return mayorEdad>=18;
     }
     
     public boolean esJubilado(){

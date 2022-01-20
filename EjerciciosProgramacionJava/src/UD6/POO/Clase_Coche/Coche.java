@@ -21,7 +21,7 @@ public class Coche {
         this.año=año;
         this.seguro_coche=seguro_coche;
     }
-    
+      
     //GETTERS
     public String getModelo(){
         return modelo;
@@ -68,6 +68,7 @@ public class Coche {
         this.tipo_coche=tipo_coche;
     }
     
+        
     public void setMatricula(String matricula){
         this.matricula=matricula;
     }
@@ -80,6 +81,7 @@ public class Coche {
         this.seguro_coche=seguro_coche;
     }
     
+      
     //METODOS
     public void imprimir(){
         System.out.println("Modelo Coche: " + getModelo()+ " Color del coche: " + getColor()
@@ -87,5 +89,8 @@ public class Coche {
                 + " Matricula del coche: " + getMatricula() + " Año de Construccion: " + getAño()
                 + " Tipo de Seguro: " + getSeguro());
     }
+
+    
 }
+
 

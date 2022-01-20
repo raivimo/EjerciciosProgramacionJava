@@ -20,7 +20,7 @@ public class Main {
         
         
 
-        Persona raimon = new Persona("33565458v", "Raimon", "Vilar Morera", 14);
+        Persona raimon = new Persona("33565458v", "Raimon", "Vilar Morera", 18);
         Persona amparo = new Persona("564654564v", "Amparo", "Vilar Morera", 20);
         
         raimon.imprimir();
@@ -28,7 +28,7 @@ public class Main {
         
         System.out.println(raimon.getApellido());
         
-        raimon.esMayorEdad(mayorEdad);
+        System.out.println(raimon.esMayorEdad(raimon.getEdad()));
         
         System.out.println(raimon.diferenciaEdad(amparo));
         
