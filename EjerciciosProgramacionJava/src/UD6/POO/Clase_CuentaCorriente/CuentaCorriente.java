@@ -48,4 +48,8 @@ public class CuentaCorriente {
         else
             return false;
     }
+    
+    public void imprimir(){
+        System.out.println("Numero de cuenta: " + getNumeroCuenta() + "Saldo disponible: " + getSaldo());
+    }
 }
