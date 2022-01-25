@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package UD6.POO.Clase_Asignatura;
 
-/**
- *
- * @author raimo
- */
 public class Main {
     public static void main(String[] args) {
         Asignatura arrayObjeto[]= new Asignatura[5];
@@ -20,8 +13,6 @@ public class Main {
         for (int i = 0; i < arrayObjeto.length; i++) {
             arrayObjeto[i].imprimir();
         }
-        
-        
         
     }
 }

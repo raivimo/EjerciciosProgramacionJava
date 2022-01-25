@@ -1,5 +1,7 @@
 package UD6.POO.Clase_CuentaCorriente;
 
+import java.util.Scanner;
+
 public class CuentaCorriente {
     private int numeroCuenta;
     private double saldo;
@@ -16,7 +18,6 @@ public class CuentaCorriente {
     public int getNumeroCuenta(){
         return numeroCuenta;
     }
-    
     public double getSaldo(){
         return saldo;
     }
@@ -25,7 +26,6 @@ public class CuentaCorriente {
     public void setNumeroCuenta(int numeroCuenta){
         this.numeroCuenta=numeroCuenta;
     }
-    
     public void setSaldo(double saldo){
         this.saldo=saldo;
     }
@@ -39,17 +39,25 @@ public class CuentaCorriente {
             System.out.println("El saldo de tu cuenta ahora es de: " + getSaldo() + " €");
         }
     }
-    
     public boolean retirar(double retirar){
-        if(saldo>retirar && retirar>=0){
+        if(saldo>=retirar && retirar>=0){
             saldo-=retirar;
+            System.out.println("El saldo de tu cuenta ahora es de: " + getSaldo() + " €");
             return true;
         }
         else
             return false;
     }
-    
     public void imprimir(){
-        System.out.println("Numero de cuenta: " + getNumeroCuenta() + "Saldo disponible: " + getSaldo());
+        System.out.println("Numero de cuenta: " + getNumeroCuenta() + " Saldo disponible: " + getSaldo() + "€");
+    }
+    public static void menu(){
+        System.out.println("==========MENU==========");
+        System.out.println("==SELECCIONE UNA OPCION==");
+        System.out.println("1. VER CUENTAS.");
+        System.out.println("2. INGRESAR");
+        System.out.println("3. RETIRAR");
+        System.out.println("4. TRANSFERENCIA");
+        System.out.println("5. SALIR");
     }
 }

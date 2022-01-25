@@ -23,6 +23,12 @@ public class DNI {
     public String getNIF(){
         return (getDNI()+ getLetra() );
     }
+    
+    //METODOS
+    public int newRandomDNI(){
+        dni= ((int)(Math.random()*1000000));
+        return dni;
+    }
 }
     
     

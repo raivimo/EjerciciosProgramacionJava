@@ -7,5 +7,8 @@ public class Main {
         DNI uno = new DNI(33565458);
         System.out.println(uno.getLetra());
         System.out.println(uno.getNIF());
+        
+        
+        System.out.println(uno.newRandomDNI());
     }
 }

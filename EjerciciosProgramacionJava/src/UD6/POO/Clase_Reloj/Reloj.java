@@ -97,10 +97,16 @@ public class Reloj {
                 minuto = getMinuto()+1;
             else
                 minuto =0;
-                if(hora < 23 || minuto ==59)
+                if(hora < 23 && minuto ==59)
                     hora = getHora() + 1;
-                else if(hora== 23 || minuto==59)
+                else if(hora > 23 && minuto==59)
                     hora=0;
             }
     }
+    
+    public void tick(int s){
+        for (int i = 0; i < s; i++) {
+            tick();
+        }
+    }    
 }
