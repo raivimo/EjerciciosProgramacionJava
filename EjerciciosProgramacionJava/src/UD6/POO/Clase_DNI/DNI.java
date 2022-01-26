@@ -25,9 +25,9 @@ public class DNI {
     }
     
     //METODOS
-    public int newRandomDNI(){
-        dni= ((int)(Math.random()*1000000));
-        return dni;
+    public static DNI newRandomDNI(){
+        int a = (int) (Math.random() * 999999);
+        return public DNI(a);
     }
 }
     

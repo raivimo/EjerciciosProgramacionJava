@@ -8,6 +8,8 @@ public class Main {
         System.out.println(uno.getLetra());
         System.out.println(uno.getNIF());
         
+        DNI.newRandomDNI()=uno;
+        
         
         System.out.println(uno.newRandomDNI());
     }
