@@ -1,6 +1,6 @@
 
 
-package UD6.CasoPractico.CasoPractico0;
+package UD6.CasoPractico.CasoPractico1;
 
 import java.util.Scanner;
 
@@ -47,7 +47,7 @@ public class Agenda {
         }
     }
     
-    public int [] buscarcontacto(String nombre){
+    public void buscarcontacto(String nombre){
         Scanner in = new Scanner(System.in);
         int[] cuantos2 = new int [100];
         for (int i = 0; i < cuantos; i++) {
@@ -55,7 +55,6 @@ public class Agenda {
                 arrayObjeto[i].imprimir();
             }
         }
-        return cuantos2;
     }
     
     

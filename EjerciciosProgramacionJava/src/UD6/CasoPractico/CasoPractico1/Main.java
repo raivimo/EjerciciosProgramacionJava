@@ -4,7 +4,7 @@
  * http://creativecommnos.org/licenses/by-nc-sa/4.0/
  */
 
-package UD6.CasoPractico.CasoPractico0;
+package UD6.CasoPractico.CasoPractico1;
 
 import java.util.Scanner;
 
@@ -48,8 +48,7 @@ public static int pedirIntEnRango(int min, int max) {
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int[] cuantos2 = new int [100];
-        
+                
         Agenda agendaContactos = new Agenda();
         Contacto a = new Contacto("asda", "asdasd","asdas");
         
@@ -62,9 +61,9 @@ public class Main {
         agendaContactos.imprimirContactos();
         
         String buscar = in.nextLine();
-        cuantos2 = agendaContactos.buscarcontacto(buscar);
-        for (int i = 0; i < agendaContactos.getCuantos(); i++) {
-            cuantos2[i].
+        
+        agendaContactos.buscarcontacto(buscar);
+        
             
             
             
@@ -79,4 +78,4 @@ public class Main {
         
         
     }
-   }
+   

@@ -26,11 +26,10 @@ public class DNI {
     
     //METODOS
     public static DNI newRandomDNI(){
-        int a = (int) (Math.random() * 999999);
-        return public DNI(a);
+        DNI uno = new DNI((int)(0+Math.random()*99999999));
+        return uno;
     }
 }
-    
     
     
 
