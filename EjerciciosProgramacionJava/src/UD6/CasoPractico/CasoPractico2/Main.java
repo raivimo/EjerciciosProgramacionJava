@@ -12,6 +12,10 @@ public class Main {
         System.out.println("3.- RETIRAR DINERO");
         System.out.println("4.- TRANSFERENCIA");
         System.out.println("5.- AGREGAR CUENTA");
+        System.out.println("6.- ELIMINAR CUENTA");
+        System.out.println("7.- BUSCAR CUENTA");
+        System.out.println("8.- MOSTRAR MOROSOS");
+        System.out.println("9.- SALIR");
     }
     
     public static void main(String[] args) {
@@ -42,6 +46,15 @@ public class Main {
                     System.out.println("DIME EL SALDO INICIAL");
                     double saldo = in.nextDouble();
                     raimon.agregarCuenta(nombre, saldo);
+                    break;
+                case 6:
+                    raimon.eliminarCuenta();
+                    break;
+                case 7:
+                    raimon.buscarCuenta();
+                    break;
+                case 8:
+                    raimon.mostrarMorosos();
                     break;
                 case 9:
                     salir=true;

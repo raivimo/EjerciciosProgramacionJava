@@ -45,6 +45,6 @@ public class Cuenta {
     }
     
     public void imprimirCuenta(){
-        System.out.println("Nombre Cuenta: " + getNombre() + " Saldo de la Cuenta: " + getSaldo());
+        System.out.println("Titular de la Cuenta: " + getNombre() + "     Saldo Disponible: " + getSaldo() + " €");
     }
 }
