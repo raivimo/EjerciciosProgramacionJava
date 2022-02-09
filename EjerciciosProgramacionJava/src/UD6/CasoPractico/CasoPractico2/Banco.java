@@ -18,6 +18,8 @@ public class Banco {
     //Atributos
     private int maxCuentas=100;
     private int cuantos=0;
+    
+    
     private Cuenta [] arrayCuenta = new Cuenta [maxCuentas];
     private int numCuenta;
     private double dinero;

@@ -1,0 +1,49 @@
+
+
+package UD6.ArrayList;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+
+public class Ej3 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        ArrayList<Double> listaPrecios = new ArrayList();
+        double precio = 0;
+        do {
+            System.out.println("Dime un precio");
+            precio = in.nextDouble();
+            listaPrecios.add(precio);
+            
+        } while (precio >= 0);
+        
+        System.out.println(listaPrecios);
+        
+        ArrayList<Double> listaBaratos = new ArrayList();
+        ArrayList<Double> listaCaros = new ArrayList();
+        
+        for (int i = 0; i < listaPrecios.size(); i++) {
+            if(listaPrecios.get(i) < 100){
+                listaBaratos.add(listaPrecios.get(i));
+                listaPrecios.remove(i);
+            }
+            else{
+                listaCaros.add(listaPrecios.get(i));
+                listaPrecios.remove(i);
+            }
+        }
+        System.out.println(listaPrecios);
+        System.out.println(listaBaratos);
+        System.out.println(listaCaros);
+         
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+}
