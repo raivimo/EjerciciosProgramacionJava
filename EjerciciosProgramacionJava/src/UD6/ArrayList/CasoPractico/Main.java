@@ -1,4 +1,4 @@
-package UD6.CasoPractico.CasoPractico1;
+package UD6.ArrayList.CasoPractico;
 
 import java.util.Scanner;
 
