@@ -37,7 +37,7 @@ public class Main {
                     try{
                         raimon.ingresarDinero();
                     }catch (CuentaException e1){
-                        e1.getMessage();
+                        System.err.println(e1.getMessage());
                     }catch (InputMismatchException e2){
                         System.out.println("No se ha leido correctamemnte");
                     }
@@ -48,8 +48,7 @@ public class Main {
                     try{
                         raimon.retirarDinero();
                     }catch (CuentaException e1){
-                        e1.getMessage();
-                        e1.printStackTrace();
+                        System.err.println(e1.getMessage());
                     }catch (InputMismatchException e2){
                         System.out.println("No se ha leido correctamemnte");
                     }
@@ -59,7 +58,7 @@ public class Main {
                         raimon.verCuentas();
                         raimon.transferencia();
                     }catch (CuentaException a){
-                        a.getMessage();
+                        System.err.println(a.getMessage());
                     }catch (InputMismatchException e2){
                         System.out.println("No se ha leido correctamemnte");
                     }
@@ -73,7 +72,7 @@ public class Main {
                         double saldo = in.nextDouble();
                         raimon.agregarCuenta(nombre, saldo);
                     }catch(CuentaException a){
-                        a.getMessage();
+                        System.err.println(a.getMessage());
                     }catch(InputMismatchException e2){
                         System.out.println("No se ha leido correctamemnte");
                     }
@@ -83,7 +82,7 @@ public class Main {
                     try{
                         raimon.eliminarCuenta();
                     }catch (CuentaException a){
-                        a.getMessage();
+                        System.err.println(a.getMessage());
                     }catch (InputMismatchException e2){
                         System.out.println("No se ha leido correctamemnte");
                     }
@@ -99,7 +98,7 @@ public class Main {
                     break;
                 }
             }catch(InputMismatchException e1){
-                System.out.println("Introduza un numero valido");
+                System.err.println("Introduza un numero valido");
                 in.nextLine();
             }
             
