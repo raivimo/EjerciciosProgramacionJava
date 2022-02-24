@@ -30,27 +30,31 @@ public class Main {
                 int opcion=in.nextInt();
                 switch(opcion){
                 case 1:
-                    raimon.verCuentas();
+                    try{
+                        raimon.verCuentas();
+                    }catch (CuentaException e1){
+                        System.err.println(e1.getMessage());
+                    }
                     break;
                 case 2:
-                    raimon.verCuentas();
                     try{
+                        raimon.verCuentas();
                         raimon.ingresarDinero();
                     }catch (CuentaException e1){
                         System.err.println(e1.getMessage());
                     }catch (InputMismatchException e2){
-                        System.out.println("No se ha leido correctamemnte");
+                        System.err.println("No se ha leido correctamemnte");
                     }
                    
                     break;
                 case 3:
-                    raimon.verCuentas();
                     try{
+                        raimon.verCuentas();
                         raimon.retirarDinero();
                     }catch (CuentaException e1){
                         System.err.println(e1.getMessage());
                     }catch (InputMismatchException e2){
-                        System.out.println("No se ha leido correctamemnte");
+                        System.err.println("No se ha leido correctamemnte");
                     }
                     break;
                 case 4:
@@ -60,7 +64,7 @@ public class Main {
                     }catch (CuentaException a){
                         System.err.println(a.getMessage());
                     }catch (InputMismatchException e2){
-                        System.out.println("No se ha leido correctamemnte");
+                        System.err.println("No se ha leido correctamemnte");
                     }
                     break;
                 case 5:
@@ -78,8 +82,8 @@ public class Main {
                     }
                     break;
                 case 6:
-                    raimon.verCuentas();
                     try{
+                        raimon.verCuentas();
                         raimon.eliminarCuenta();
                     }catch (CuentaException a){
                         System.err.println(a.getMessage());

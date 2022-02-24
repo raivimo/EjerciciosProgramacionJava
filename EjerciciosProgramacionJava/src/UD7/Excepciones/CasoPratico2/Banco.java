@@ -25,7 +25,7 @@ public class Banco {
     private double dinero;
 
     //Metodos   
-    public void verCuentas(){
+    public void verCuentas() throws CuentaException{
         if(cuantos>0){
             for (int i = 0; i < cuantos ; i++) {
                 System.out.print(i + ".");
@@ -33,7 +33,7 @@ public class Banco {
             }
         }
         else
-            System.out.println("No hay cuentas");
+            throw new CuentaException("No hay creadas ninguna cuenta.");
     }
     
     public void ingresarDinero() throws CuentaException {
